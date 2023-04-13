@@ -5,3 +5,23 @@
     box-sizing: border-box;
     font-family: "Concert One", sans-serif;
 }
+body {
+    background: rgb(253, 200, 208);
+}
+.startButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.startButton button {
+    font-size: 25px;
+    font-weight: 500;
+    color: rgb(144, 170, 144);
+    padding: 15px 30 px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
