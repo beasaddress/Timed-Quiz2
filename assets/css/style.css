@@ -8,20 +8,90 @@
 body {
     background: rgb(253, 200, 208);
 }
-.startButton {
+.startButton, .rulesBox {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 .startButton button {
-    font-size: 25px;
+    font-size: 45px;
     font-weight: 500;
     color: rgb(144, 170, 144);
-    padding: 15px 30 px;
+    padding: 60px 50px;
     outline: none;
     border: none;
     border-radius: 5px;
     background: white;
     cursor: pointer;
+}
+.rulesBox {
+    width: 540px;
+    background: white;
+    border-radius: 5px;
+    display: none;
+}
+
+.rulesBox .rulesTitle {
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;  
+  display: flex;
+  align-items: center;
+  padding: 0 35px;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.rulesBox .ruleList {
+    padding: 15px 35px;
+}
+
+.rulesBox .ruleList .rules {
+margin: 5px 0;
+font-size: 17px;
+}
+
+.rulesBox .ruleList .rule span {
+    font-weight: 600;
+    color:rgb(253, 200, 208);
+}
+
+.rulesBox .buttons {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 35px;
+    border-top: 1px solid lightgrey;
+}
+
+.rulesBox .buttons button {
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    border: 1px solid pink;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .3s ease;
+
+}
+
+.buttons button.restart{
+    background: pink;
+    color: white;
+}
+.buttons button.restart:hover{
+    background:rgb(219, 165, 173)
+}
+
+.buttons button.quit{
+    background: pink;
+    color: white;
+}
+.buttons button.quit:hover{
+    background:rgb(219, 165, 173)
 }
