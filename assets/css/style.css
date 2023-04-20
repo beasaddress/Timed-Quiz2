@@ -6,7 +6,7 @@
     font-family: "Concert One", sans-serif;
 }
 body {
-    background: rgb(253, 200, 208);
+    background: white;;
 }
 .startButton, .rulesBox, .quizScreen {
     position: absolute;
@@ -18,7 +18,7 @@ body {
     font-size: 45px;
     font-weight: 500;
     color: rgb(144, 170, 144);
-    padding: 60px 50px;
+    padding: 20px 30px;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -29,7 +29,7 @@ body {
     width: 540px;
     background: white;
     border-radius: 5px;
-    
+    display: none;
 }
 
 .rulesBox .rulesTitle {
@@ -93,17 +93,17 @@ font-size: 17px;
     color: white;
 }
 .buttons button.quit:hover{
-    background:rgb(219, 165, 173);
-    color: white;
+    background:rgb(219, 165, 173)
 }
-.quizScreen {
+
+.quizScreen{
     width: 550px;
     background: white;
     border-radius: 5px;
-    box-shadow: 0px 3px 5px 1px rgb(116, 115, 115);
+    box-shadow: 0px 3px 5px 1px grey;
 }
-.quizScreen header {
-    position: relative;
+
+.quizScreen header{
     height: 70px;
     padding: 0 30px;
     background: white;
@@ -111,118 +111,86 @@ font-size: 17px;
     align-items: center;
     justify-content: space-between;
     border-radius: 5px 5px 0 0;
-    box-shadow: 0px 3px 5px 1px rgb(116, 115, 115);
-    z-index: 99;
+    box-shadow: 0px 3px 5px 1px grey;
 }
-.quizScreen header .title{
+
+.quizScreen header .title {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 600px;
+
 }
-.quizScreen header .timer{
+
+.quizScreen header .timer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 145px;
     height: 45px;
-    background: rgb(255, 28, 28);
-    border: 1px solid rgb(163, 163, 163);
+    background: rgb(252, 214, 220);
+    border: 1px solid rgb(144, 170, 144);
     border-radius: 5px;
     padding: 0 8px;
+
 }
+
 .quizScreen header .timer .timeLeft {
     font-weight: 400;
     font-size: 17px;
     user-select: none;
 }
+
 .quizScreen header .timer .timerSeconds {
     font-size: 18px;
     font-weight: 500;
-    background: rgb(248, 238, 240);
+    background: rgb(54, 54, 54);
     height: 30px;
     width: 45px;
-    color: black;
+    color: white;
     text-align: center;
     line-height: 30px;
     border-radius: 5px;
-    border: 1px solid rgb(240, 224, 172);
+    border: 1px solid rgb(54, 54, 54);
     user-select: none;
 }
+
 .quizScreen section {
-   padding: 25px 30px 20px 30px;
-   background: white;
+    padding: 25px 30px 20px 30px;
+    background: white;
 }
 
-.quizScreen section .questionText {
+.quizScreen section .questionText{
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 600px;
 }
+
 .quizScreen section .choices {
     padding: 20px 0;
     display: block;
 }
+
 section .choices .choice {
-    background: rgb(248, 238, 240);
-    border: 1px solid rgb(248, 207, 215);
-    border-radius: 5px;
+    background: rgb(188, 216, 188);
+    border: 1 px solid white;
     padding: 8px 15px;
     margin-bottom: 15px;
-    font-size: 17px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    font-size: 17px;
     transition: all .3s ease;
 }
-section .choices .choice:hover {
-    color: pink;
-    background: white;
-    border-color: rgb(248, 207, 215);
-}
-.choices .choice:last-child{
-    margin-bottom: 0px;
-}
-.choices .choice .icon {
-    height: 26px;
-    width: 26px;
-    border: 2px solid transparent;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 13px;
-    line-height: 24px;
-    pointer-events: none;
-}
-.choices .choice .icon.tick {
-    border-color: green;
-    color: green;
-    background: rgb(130, 219, 130);
-}
-.choices .choice .icon.cross {
-    border-color: rgb(128, 0, 0);
-    color: rgb(128, 0, 0);
-    background: rgb(243, 196, 196);
-}
-.quizScreen footer {
-    height: 60px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 30px;
-}
-.quizScreen footer .questionsLeft span {
-    display: flex;
-    user-select: none;
-}
-footer .questionsLeft span p {
-    font-weight: 500;
-    padding: 0 5px;
+
+section .choices .choice:hover{
+    color:pink;
+    background: rgb(144, 165, 144);
+    border-color: black;
 }
 
-footer .questionsLeft span p:first-child{
-    padding-left: 0px;
+.choices .choice:last-child{
+    margin-bottom: 0;
 }
-footer .nextButton {
-    height: 40px;
-    padding: 0 13px;
-    font-size: 18px;
+
+.choices .choice .icon{
+    height: 36px
 }
