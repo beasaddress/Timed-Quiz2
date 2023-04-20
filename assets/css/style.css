@@ -191,6 +191,48 @@ section .choices .choice:hover{
     margin-bottom: 0;
 }
 
-.choices .choice .icon{
-    height: 36px
+.choices .choice .icon {
+    height: 26px;
+    width: 26px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 13px;
+    line-height: 24px;
+    pointer-events: none;
+}
+.choices .choice .icon.tick {
+    border-color: green;
+    color: green;
+    background: rgb(130, 219, 130);
+}
+.choices .choice .icon.cross {
+    border-color: rgb(128, 0, 0);
+    color: rgb(128, 0, 0);
+    background: rgb(243, 196, 196);
+}
+.quizScreen footer {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+.quizScreen footer .questionsLeft span {
+    display: flex;
+    user-select: none;
+}
+footer .questionsLeft span p {
+    font-weight: 500;
+    padding: 0 5px;
+}
+
+footer .questionsLeft span p:first-child{
+    padding-left: 0px;
+}
+footer .nextButton {
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
 }
