@@ -6,13 +6,14 @@
     font-family: "Concert One", sans-serif;
 }
 body {
-    background: white;;
+    background: white;
 }
-.startButton, .rulesBox, .quizScreen {
+.startButton, .rulesBox, .quizScreen, .results {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
 }
 .startButton button {
     font-size: 45px;
@@ -29,7 +30,10 @@ body {
     width: 540px;
     background: white;
     border-radius: 5px;
-    display: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0,9);
+
 }
 
 .rulesBox .rulesTitle {
@@ -101,6 +105,12 @@ font-size: 17px;
     background: white;
     border-radius: 5px;
     box-shadow: 0px 3px 5px 1px grey;
+
+    /*hmmmm */
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0,9);
+    
 }
 
 .quizScreen header{
@@ -235,4 +245,66 @@ footer .nextButton {
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    color: white;
+    background: rgb(144, 170, 144);
+    border-radius: 5px;
+    border: 1px solid rgb(117, 136, 117);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+footer .nextButton:hover{
+    background:rgb(219, 165, 173);
+}
+.results {
+    background: white;
+    width: 500px;
+    padding: 25px 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0,9);
+}
+.results .icon {
+    font-size: 100px;
+    color:rgb(219, 165, 173);
+    margin-bottom: 10px;
+}
+.results .finished {
+    font-size: 20px;
+    font-weight: 500;
+}
+.results .score span {
+    display: flex;
+    margin: 10px 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+.score span p {
+    font-weight: 600px;
+    padding: 0 4px;
+}
+.results .buttons {
+    display: flex;
+    margin: 20px 0;
+}
+.results .buttons button {
+    margin: 0 10px;
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid rgb(219, 165, 173);
+    cursor: pointer;
+    transition: all .3s ease;
 }
