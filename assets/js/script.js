@@ -17,14 +17,26 @@ quit.onclick = ()=>{
 restart.onclick = ()=>{
     rulesBox.classList.remove("activeRules");
     quizScreen.classList.add("activeQuiz");
-    showQuestions(2);
+    showQuestions(que_count);
 }
 let que_count = 0;
+const nextButton = quizScreen.querySelector(".nextButton");
+//creating a click event so that if nextbutton is clicked, it will move up the array of questions/answers starting from 0 index using an if statement
+nextButton.onclick = ()=> {
+    if(que_count < questions.length -1){
+        que_count++;
+        showQuestions(que_count);
+    }else{
+        console.log("No more questions to show");
+    }
+}
+
 //creating a function that will show the questons after the continue button is clicked
+//also going to add the corresponding number to the question from the question array
 function showQuestions(index){
-    var questionText = document.getElementByClass(".questionText");  
-    var choices = document.querySelector(".choices");
-    let que_tag = '<span>' + questions[index].title + '</span>';
+    const questionText = document.querySelector(".questionText");  
+    const choices = document.querySelector(".choices");
+    let que_tag = '<span>'+ questions[index].number + "." + questions[index].title + '</span>';
     let choices_tag = '<div class="choice">'+ questions[index].choices[0] +'<span></span></div>'
                     + '<div class="choice">'+ questions[index].choices[1] +'<span></span></div>'
                     + '<div class="choice">'+ questions[index].choices[2] +'<span></span></div>'
