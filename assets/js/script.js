@@ -17,9 +17,18 @@ quit.onclick = ()=>{
 restart.onclick = ()=>{
     rulesBox.classList.remove("activeRules");
     quizScreen.classList.add("activeQuiz");
+    showQuestions(2);
 }
 let que_count = 0;
-//using the arrays to switch out questions
-function showQuestions(){
-    var questionText = document.querySelecter(".questionsText");
+//creating a function that will show the questons after the continue button is clicked
+function showQuestions(index){
+    var questionText = document.querySelecter(".questionText");  
+    var choices = document.querySelector(".choices");
+    let que_tag = '<span>' + questions[index].title + '</span>';
+    let choices_tag = '<div class="choice">'+ questions[index].choices[0] +'<span></span></div>'
+                    + '<div class="choice">'+ questions[index].choices[1] +'<span></span></div>'
+                    + '<div class="choice">'+ questions[index].choices[2] +'<span></span></div>'
+                    + '<div class="choice">'+ questions[index].choices[3] +'<span></span></div>';
+    questionText.innerHTML = que_tag;
+    choices.innerHTML = choices_tag;
 }
