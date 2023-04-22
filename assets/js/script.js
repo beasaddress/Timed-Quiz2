@@ -22,7 +22,7 @@ restart.onclick = ()=>{
 let que_count = 0;
 //creating a function that will show the questons after the continue button is clicked
 function showQuestions(index){
-    var questionText = document.querySelecter(".questionText");  
+    var questionText = document.getElementByClass(".questionText");  
     var choices = document.querySelector(".choices");
     let que_tag = '<span>' + questions[index].title + '</span>';
     let choices_tag = '<div class="choice">'+ questions[index].choices[0] +'<span></span></div>'
