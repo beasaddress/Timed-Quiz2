@@ -15,15 +15,22 @@ body {
     transform: translate(-50%, -50%);
 
 }
+.rulesBox.activeRules,
+.quizScreen.activeQuiz{
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
 .startButton button {
     font-size: 45px;
     font-weight: 500;
-    color: rgb(144, 170, 144);
+    color: white;
     padding: 20px 30px;
     outline: none;
     border: none;
     border-radius: 5px;
-    background: white;
+    background: rgb(241, 199, 206);
     cursor: pointer;
 }
 .rulesBox {
@@ -76,6 +83,7 @@ font-size: 17px;
     width: 100px;
     border: 1px solid pink;
     border-radius: 5px;
+    outline: none;
     color: white;
     font-size: 20px;
     font-weight: 500;
@@ -89,7 +97,7 @@ font-size: 17px;
     color: white;
 }
 .buttons button.restart:hover{
-    background:rgb(219, 165, 173)
+    background:rgb(219, 165, 173);
 }
 
 .buttons button.quit{
@@ -97,7 +105,7 @@ font-size: 17px;
     color: white;
 }
 .buttons button.quit:hover{
-    background:rgb(219, 165, 173)
+    background:rgb(219, 165, 173);
 }
 
 .quizScreen{
@@ -110,8 +118,8 @@ font-size: 17px;
     opacity: 0;
     pointer-events: none;
     transform: translate(-50%, -50%) scale(0,9);
-    
 }
+
 
 .quizScreen header{
     height: 70px;
