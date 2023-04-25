@@ -21,7 +21,7 @@ restart.onclick = ()=>{
     queCounter(1);
 }
 let que_count = 0;
-let queNumber = 1;
+let queNumber = 1; //for the question counter..
 const nextButton = quizScreen.querySelector(".nextButton");
 //creating a click event so that if nextbutton is clicked, it will move up the array of questions/answers starting from 0 index using an if statement
 nextButton.onclick = ()=> {
@@ -29,7 +29,7 @@ nextButton.onclick = ()=> {
         que_count++;
         queNumber++;
         showQuestions(que_count);
-        queCounter(queNumber);
+        queCounter(queNumber);//making it so that that question counter will plus one everytime the user clicks next
     }else{
         console.log("No more questions to show");
     }
@@ -48,8 +48,20 @@ function showQuestions(index){
     questionText.innerHTML = que_tag;
     choices.innerHTML = choices_tag;
 }
+//using a for loop to see what choice the user selected
 
-function queCounter() {
+
+function choiceSelected(answer){
+    let userChoice = answer.textContent;
+    let correctChoice = questions[index].answer;
+    console.log(userChoice);
+}
+
+
+
+
+//adding a function that will tell the user what question they are one
+function queCounter(index) {
 const questionCounter =  quizScreen.querySelector(".questionsLeft");
 let quesCountTag = '<span><p>' + index + '</p> of <p>' + questions.length + '</p>Questions</span>';
 questionCounter.innerHTML = quesCountTag;
