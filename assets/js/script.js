@@ -4,6 +4,7 @@ var rulesBox = document.querySelector(".rulesBox");
 var quit = rulesBox.querySelector(".buttons .quit");
 var restart = rulesBox.querySelector(".buttons .restart");
 var quizScreen = document.querySelector(".quizScreen");
+const choices = document.querySelector(".choices");
 
 //if user clicks start quiz
 startButton.onclick = ()=>{
@@ -39,7 +40,7 @@ nextButton.onclick = ()=> {
 //also going to add the corresponding number to the question from the question array
 function showQuestions(index){
     const questionText = document.querySelector(".questionText");  
-    const choices = document.querySelector(".choices");
+    
     let que_tag = '<span>'+ questions[index].number + "." + questions[index].title + '</span>';
     let choices_tag = '<div class="choice">'+ questions[index].choices[0] +'<span></span></div>'
                     + '<div class="choice">'+ questions[index].choices[1] +'<span></span></div>'
@@ -47,21 +48,46 @@ function showQuestions(index){
                     + '<div class="choice">'+ questions[index].choices[3] +'<span></span></div>';
     questionText.innerHTML = que_tag;
     choices.innerHTML = choices_tag;
+    const choice = choices.querySelectorAll(".choice");
+    //using a for loop so that when the user clicks an answer, it registers as the choice selected by user
+    for (let i = 0; i < choice.length; i++) {
+    choice[i].setAttribute("onclick", "choiceSelected(this)");
+    }
 }
-//using a for loop to see what choice the user selected
 
-
+let tickIcon = '<div class="icon tick"><i class="fas fa-check"></i></div>';
+let crossIcon = ' <div class="icon cross"><i class="fas fa-times"></i></div>';
 function choiceSelected(answer){
     let userChoice = answer.textContent;
-    let correctChoice = questions[index].answer;
-    console.log(userChoice);
-}
+    let correctChoice = questions[que_count].answer;
+    let allChoices = choices.children.length;
+    //using an if statement to see if the user choice is equal to the answer from questions.js
+    if(userChoice == correctChoice){
+        answer.classList.add("correct");
+        //making the correct answer box turn to a differnt color when clicked
+        console.log("that's correct!");
+        //inserting my google font icons here when the function decides if the wrong or right answer was selected
+        
+    }else{
+        answer.classList.add("incorrect");
+        console.log("that's incorrect.");
+        //show user that their answer was wrong by hightlighting the correct answer
+        for(let i=0; i < allChoices; i++){
+            if(choices.children[i].textContent == correctChoice){
+                choices.children[i].setAttribute("class", "choice correct");
+            }
+        }
+    }
+    //disabling the children in .choices from changing colors after the user chooses one choice
+    for(let i = 0; i < allChoices; i++) {
+        choices.children[i].classList.add("disabled");
+        }
 
-
+    }
 
 
 //adding a function that will tell the user what question they are one
-function queCounter(index) {
+function queCounter(index){
 const questionCounter =  quizScreen.querySelector(".questionsLeft");
 let quesCountTag = '<span><p>' + index + '</p> of <p>' + questions.length + '</p>Questions</span>';
 questionCounter.innerHTML = quesCountTag;

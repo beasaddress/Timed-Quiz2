@@ -187,7 +187,7 @@ font-size: 17px;
 }
 
 section .choices .choice {
-    background: rgb(188, 216, 188);
+    background: rgb(252, 214, 220);
     border: 1 px solid white;
     padding: 8px 15px;
     margin-bottom: 15px;
@@ -229,6 +229,19 @@ section .choices .choice:hover{
     color: rgb(128, 0, 0);
     background: rgb(243, 196, 196);
 }
+.choices .choice.correct{
+    color: green;
+    background: rgb(174, 213, 174);
+    border: green;
+}.choices .choice.incorrect{
+    color: red;
+    background: rgb(159, 62, 62);
+    border: red;
+}
+.choices .choice.disabled{
+    pointer-events: none;
+}
+
 .quizScreen footer {
     height: 60px;
     width: 100%;
