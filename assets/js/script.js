@@ -21,12 +21,12 @@ restart.onclick = ()=>{
     quizScreen.classList.add("activeQuiz");
     showQuestions(que_count);
     queCounter(1);
-    startTimer(15);
+    startTimer(60);
 }
 let que_count = 0;
 let queNumber = 1; //for the question counter..
 let countdown;
-let timeAllowed = 15;
+let time = 60;
 const nextButton = quizScreen.querySelector(".nextButton");
 //creating a click event so that if nextbutton is clicked, it will move up the array of questions/answers starting from 0 index using an if statement
 nextButton.onclick = ()=> {
@@ -35,8 +35,8 @@ nextButton.onclick = ()=> {
         queNumber++;
         showQuestions(que_count);
         queCounter(queNumber);//making it so that that question counter will plus one everytime the user clicks next
-        clearInterval(countdown);//setting the timer back to 15 seconds if the next button is clicked
-        startTimer(timeAllowed);
+        //clearInterval(countdown);//setting the timer back to 15 seconds if the next button is clicked
+        startTimer();
     }else{
         console.log("No more questions to show");
     }
@@ -64,10 +64,11 @@ function showQuestions(index){
 let tickIcon = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIcon = ' <div class="icon cross"><i class="fas fa-times"></i></div>';
 function choiceSelected(answer){
-    clearInterval(countdown); //stopping time if user chooses 
+    clearInterval(countdown); //stopping time when user clicks on a choice
     let userChoice = answer.textContent;
     let correctChoice = questions[que_count].answer;
     let allChoices = choices.children.length;
+    
     //using an if statement to see if the user choice is equal to the answer from questions.js
     if(userChoice == correctChoice){
         answer.classList.add("correct");
@@ -79,6 +80,8 @@ function choiceSelected(answer){
         answer.classList.add("incorrect");
         console.log("that's incorrect.");
         answer.insertAdjacentHTML("beforeend", crossIcon);
+        //countdown = setInterval(-10);        
+        time -= 10;
         //show user that their answer was wrong by hightlighting the correct answer and adding the tickIcon
         for(let i=0; i < allChoices; i++){
             if(choices.children[i].textContent == correctChoice){
@@ -93,8 +96,8 @@ function choiceSelected(answer){
         }
 
     }
-//creating a function that will start counting down from 15 when the nxt button is clicked
-function startTimer(time){
+//creating a function that will start counting down from 60 when the nxt button is clicked
+function startTimer(){
     countdown = setInterval(timer, 1000);
     function timer(){
         timeCountdown.textContent = time;
