@@ -113,20 +113,20 @@ function showResults(){
     const grade = results.querySelector(".score");
         let gradeTag = '<span>Your grade is ' + time + ' out of 60 </span>';
         grade.innerHTML = gradeTag;
-        const yourScoreButton = results.querySelector(".buttons #yourScore");
+        const yourScoreButton = document.querySelector("#yourScore");
     yourScoreButton.addEventListener("click", function(event){
         event.preventDefault();
-        const initials = document.querySelector("#initials");
+        const initials = document.querySelector("#initials").value;
 
-        if (initials === " ") {
-            displayMessage("error", "Initials cannot be blank");
-        }else{
-            displayMessage("success", "Registered Succesfully");
+       // if (initials === " ") {
+       //     displayMessage("error", "Initials cannot be blank");
+       // }else{
+           // displayMessage("success", "Registered Succesfully");
 
-            localStorage.setItem("email", email);
+            localStorage.setItem("initials", initials);
             localStorage.setItem("yourScore", time);
             renderLastRegistered();
-        }  
+       // }  
     }); 
 }
 function renderLastRegistered() {
@@ -136,7 +136,7 @@ function renderLastRegistered() {
     if(!initials || !yourScore){
         return;
     }
-    userInitialsSpan.textContent = initials;
+    userInitialsSpan.textContent = initials + ' ' +yourScore;
 }
 
 //creating a function that will start counting down from 60 when the nxt button is clicked
