@@ -16,7 +16,8 @@ body {
 
 }
 .rulesBox.activeRules,
-.quizScreen.activeQuiz{
+.quizScreen.activeQuiz,
+.results.activeResults{
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
@@ -263,6 +264,7 @@ footer .questionsLeft span p:first-child{
     padding-left: 0px;
 }
 footer .nextButton {
+    display: none;
     height: 40px;
     padding: 0 13px;
     font-size: 18px;

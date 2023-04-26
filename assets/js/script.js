@@ -28,6 +28,9 @@ let queNumber = 1; //for the question counter..
 let countdown;
 let time = 60;
 const nextButton = quizScreen.querySelector(".nextButton");
+const results = document.querySelector(".results");
+const restartQ = results.querySelector(".buttons .restartQ");
+const quitQ = results.querySelector(".buttons .restartQ");
 //creating a click event so that if nextbutton is clicked, it will move up the array of questions/answers starting from 0 index using an if statement
 nextButton.onclick = ()=> {
     if(que_count < questions.length -1){
@@ -37,8 +40,10 @@ nextButton.onclick = ()=> {
         queCounter(queNumber);//making it so that that question counter will plus one everytime the user clicks next
         //clearInterval(countdown);//setting the timer back to 15 seconds if the next button is clicked
         startTimer();
+        nextButton.style.display = "none";//next button will not be visible when the user clicks "continue"but will show once they select an answer
     }else{
         console.log("No more questions to show");
+        showResults(); //when there are no more questions, results will show
     }
 }
 
@@ -79,8 +84,7 @@ function choiceSelected(answer){
     }else{
         answer.classList.add("incorrect");
         console.log("that's incorrect.");
-        answer.insertAdjacentHTML("beforeend", crossIcon);
-        //countdown = setInterval(-10);        
+        answer.insertAdjacentHTML("beforeend", crossIcon);      
         time -= 10;
         //show user that their answer was wrong by hightlighting the correct answer and adding the tickIcon
         for(let i=0; i < allChoices; i++){
@@ -94,14 +98,29 @@ function choiceSelected(answer){
     for(let i = 0; i < allChoices; i++) {
         choices.children[i].classList.add("disabled");
         }
+        nextButton.style.display = "block"; //making the "next" button reappear when the user clicks on a choice
+        //refernecing the CSS class .nextButton and the method "display"
 
     }
+function showResults(){
+    rulesBox.classList.remove("activeRules");//makes the rules box not show up again
+    quizScreen.classList.remove("activeQuiz"); //make the quiz go away
+    results.classList.add("activeResults");//makes the result box pop up
+    console.log(time);
+    const grade = results.querySelector(".score");
+        let gradeTag = '<span>Your grade is ' + time + ' out of 60 </span>';
+        grade.innerHTML = gradeTag;
+}
 //creating a function that will start counting down from 60 when the nxt button is clicked
 function startTimer(){
     countdown = setInterval(timer, 1000);
     function timer(){
         timeCountdown.textContent = time;
         time--;
+        if(time > 0){
+            clearInterval(counter);
+            timeCountdown.textContent = '0';
+        }
     }
 }
 //adding a function that will tell the user what question they are one
