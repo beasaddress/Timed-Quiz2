@@ -74,10 +74,22 @@
         <div class="score">
             <!--<span>Your grade is <p>2</p> out of <p>5</p></span>-->
         </div>
+        <form method="POST">
+            <div class="input">
+              <label for="initial">Type your initials Here</label>
+              <input type="text" name = "initials" id="initials" placeholder="Initials Go Here" />
+            </div>
+        </form>
         <div class="buttons">
             <button class="restartQ">Restart Quiz</button>
-            <button class="quitQ">Quit</button>
+            <button id="YourScore">Save Your Score</button>
         </div>
+        <div class="card">
+            <h2>High Scores:</h2>
+            <p><strong>Initials</strong> <span id="user-initials"></span></p>
+            <!--<p><strong>Password</strong> <span id="user-password"></span></p>-->
+          </div>
+    
     </div>
     <script src="./assets/js/questions.js"></script>
     <script src="./assets/js/script.js"></script>

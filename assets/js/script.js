@@ -6,6 +6,8 @@ var restart = rulesBox.querySelector(".buttons .restart");
 var quizScreen = document.querySelector(".quizScreen");
 const choices = document.querySelector(".choices");
 const timeCountdown = quizScreen.querySelector(".timer .timerSeconds");
+//const highScores = results.querySelector("#yourScore");
+const userInitialsSpan = document.querySelector("#user-initials");
 
 //if user clicks start quiz
 startButton.onclick = ()=>{
@@ -30,7 +32,8 @@ let time = 60;
 const nextButton = quizScreen.querySelector(".nextButton");
 const results = document.querySelector(".results");
 const restartQ = results.querySelector(".buttons .restartQ");
-const quitQ = results.querySelector(".buttons .restartQ");
+
+//const yourScoreButton = results.querySelector(".buttons .yourScore");
 //creating a click event so that if nextbutton is clicked, it will move up the array of questions/answers starting from 0 index using an if statement
 nextButton.onclick = ()=> {
     if(que_count < questions.length -1){
@@ -110,7 +113,32 @@ function showResults(){
     const grade = results.querySelector(".score");
         let gradeTag = '<span>Your grade is ' + time + ' out of 60 </span>';
         grade.innerHTML = gradeTag;
+        const yourScoreButton = results.querySelector(".buttons #yourScore");
+    yourScoreButton.addEventListener("click", function(event){
+        event.preventDefault();
+        const initials = document.querySelector("#initials");
+
+        if (initials === " ") {
+            displayMessage("error", "Initials cannot be blank");
+        }else{
+            displayMessage("success", "Registered Succesfully");
+
+            localStorage.setItem("email", email);
+            localStorage.setItem("yourScore", time);
+            renderLastRegistered();
+        }  
+    }); 
 }
+function renderLastRegistered() {
+    const initials = localStorage.getItem("initials");
+    const yourScore = localStorage.getItem("yourScore");
+
+    if(!initials || !yourScore){
+        return;
+    }
+    userInitialsSpan.textContent = initials;
+}
+
 //creating a function that will start counting down from 60 when the nxt button is clicked
 function startTimer(){
     countdown = setInterval(timer, 1000);
