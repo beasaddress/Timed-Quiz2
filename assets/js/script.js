@@ -41,7 +41,6 @@ nextButton.onclick = ()=> {
         queNumber++;
         showQuestions(que_count);
         queCounter(queNumber);//making it so that that question counter will plus one everytime the user clicks next
-        //clearInterval(countdown);//setting the timer back to 15 seconds if the next button is clicked
         startTimer();
         nextButton.style.display = "none";//next button will not be visible when the user clicks "continue"but will show once they select an answer
     }else{
@@ -117,16 +116,9 @@ function showResults(){
     yourScoreButton.addEventListener("click", function(event){
         event.preventDefault();
         const initials = document.querySelector("#initials").value;
-
-       // if (initials === " ") {
-       //     displayMessage("error", "Initials cannot be blank");
-       // }else{
-           // displayMessage("success", "Registered Succesfully");
-
             localStorage.setItem("initials", initials);
             localStorage.setItem("yourScore", time);
-            renderLastRegistered();
-       // }  
+            renderLastRegistered();  
     }); 
 }
 function renderLastRegistered() {
@@ -136,7 +128,7 @@ function renderLastRegistered() {
     if(!initials || !yourScore){
         return;
     }
-    userInitialsSpan.textContent = initials + ' ' +yourScore;
+    userInitialsSpan.textContent = initials + ' - ' +yourScore;
 }
 
 //creating a function that will start counting down from 60 when the nxt button is clicked
@@ -145,9 +137,10 @@ function startTimer(){
     function timer(){
         timeCountdown.textContent = time;
         time--;
-        if(time < 0){
-            clearInterval(counter);
+        if(time <= 0){
+            clearInterval(countdown);
             timeCountdown.textContent = '0';
+            showResults();
         }
     }
 }
